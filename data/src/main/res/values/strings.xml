@@ -1,0 +1,348 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="advices">
+        <item>Speak like a pirate at least once a week. Yarrr, it\'s divine.</item>
+        <item>Always question authority — even if it\'s a giant meatball in the sky.</item>
+        <item>Boil your pasta, not your anger.</item>
+        <item>Believe in something ridiculous. It builds character.</item>
+        <item>If someone offers you a meatball, accept it graciously. It could be a blessing.</item>
+        <item>Don\’t take life too seriously — after all, we might all be noodles in a cosmic soup.</item>
+        <item>Offer others spaghetti, not judgment.</item>
+        <item>Eat carbs without guilt. You are sacred.</item>
+        <item>Say “RAmen” after meals. It shows gratitude to the Sauce.</item>
+        <item>Never trust someone who dislikes garlic bread.</item>
+        <item>Celebrate randomness — the FSM created the world after drinking too much.</item>
+        <item>Be kind, even to those who put pineapple on pizza.</item>
+        <item>Worship freely - even if it requires a colander.</item>
+        <item>Avoid dogma. Unless it\'s shaped like a sausage.</item>
+        <item>Laugh often. Laughter is the seasoning of life.</item>
+        <item>Wear pirate gear whenever possible. It boosts global temperatures responsibly.</item>
+        <item>Be skeptical of certainty. Even this sentence.</item>
+        <item>Try to fly — if not physically, then mentally, spiritually, or humorously.</item>
+        <item>Hug a fellow pastafarian. It\'s communion in motion.</item>
+        <item>Remember: beer volcanoes and stripper factories await the faithful.</item>
+        <item>Forgive others for being wrong — they may be touched by His Noodly Appendage later.</item>
+        <item>Respect all beliefs. Especially those involving invisible monsters.</item>
+        <item>Make your own commandments. But don\’t expect anyone to follow them.</item>
+        <item>Pray only if you\’re about to sneeze or burn the pasta.</item>
+        <item>Practice noodlism: flexible thinking with strong core values.</item>
+        <item>Don\’t argue on the internet. Instead, send pasta memes.</item>
+        <item>Stay saucy, but not salty.</item>
+        <item>Don\’t waste marinara or your energy on fools.</item>
+        <item>Dress as a pirate not just on Halloween. Every day is sacred.</item>
+        <item>Don\’t judge others for being gluten-free. FSM loves all.</item>
+        <item>If you lose faith, eat lasagna. It helps.</item>
+        <item>Love is like Parmesan — best when shared generously.</item>
+        <item>Draw the FSM on napkins. It\'s devotional art.</item>
+        <item>Teach your children to ask “Why?” and “What\’s for dinner?”</item>
+        <item>Find holiness in holes — especially donut holes.</item>
+        <item>Speak your truth, unless it\’s full of anchovies.</item>
+        <item>Host dinner gatherings. Communion is best with fettuccine.</item>
+        <item>If you\’re ever lost in life, follow the scent of garlic.</item>
+        <item>Be mindful, but never mindless.</item>
+        <item>Read absurd things. They may reveal deep truths.</item>
+        <item>Don\'t fear the unknown. It may be pasta.</item>
+        <item>Never underestimate the wisdom of leftovers.</item>
+        <item>If you\’re stuck, ask yourself: What Would Noodle Do?</item>
+        <item>Celebrate Talk Like a Pirate Day. It\’s practically sacred.</item>
+        <item>Turn your doubts into dough.</item>
+        <item>Avoid being a penne-head. Be a fusilli of kindness.</item>
+        <item>Smile at strangers. They might be secret pirates.</item>
+        <item>Keep your sauce hot and your temper cool.</item>
+        <item>Practice daily rituals: spaghetti twirling, garlic bread slicing, red wine sipping.</item>
+        <item>Make peace, not alfredo war.</item>
+        <item>When stressed, count pasta shapes instead of sheep.</item>
+        <item>Challenge doctrines — even marinara recipes.</item>
+        <item>Sometimes the answer *is* more Parmesan.</item>
+        <item>Never forget: we\’re all a little overcooked sometimes.</item>
+        <item>Worship in kitchens, not cathedrals.</item>
+        <item>Kindness is stronger than any meatball.</item>
+        <item>If you\’re angry, go stir a pot — it\’s therapeutic.</item>
+        <item>Treat others as you\’d want to be served pasta.</item>
+        <item>Recycle. Even FSM appreciates a clean strainer.</item>
+        <item>Don\'t trust anyone who says pasta is bad for you.</item>
+        <item>Keep your hat silly and your soul sincere.</item>
+        <item>Be wary of those who speak only in seriousness.</item>
+        <item>Support science — it\'s compatible with spaghetti.</item>
+        <item>Don\’t try to convert others. Offer them lasagna instead.</item>
+        <item>Cry if you need to — even onions do.</item>
+        <item>If your path is unclear, cook something.</item>
+        <item>Avoid pasta-shaming. Even overcooked noodles have a place.</item>
+        <item>See the divine in ridiculous things.</item>
+        <item>Disagree peacefully, preferably over wine.</item>
+        <item>Avoid rigid beliefs. Be al dente.</item>
+        <item>Thank the Flying Spaghetti Monster for second servings.</item>
+        <item>Honor the sacred texts — even if they\’re recipes.</item>
+        <item>Don\'t fear chaos. It made meatballs.</item>
+        <item>Live like every day is a feast.</item>
+        <item>Fellowship is stronger than dogma.</item>
+        <item>If someone is hurting, offer them warmth — and garlic knots.</item>
+        <item>Dance badly but joyfully.</item>
+        <item>Learn a new pasta shape each month.</item>
+        <item>Forgive mistakes like over-salted sauce.</item>
+        <item>Encourage others to think freely — not just follow recipes.</item>
+        <item>Build altars of laughter, not stone.</item>
+        <item>Make traditions, then break them over tiramisu.</item>
+        <item>Help others carry their colanders.</item>
+        <item>Trust the journey, even if it\’s a spiral.</item>
+        <item>Skepticism is healthy. So is pesto.</item>
+        <item>If you feel small, remember — even a single noodle can stir the pot.</item>
+        <item>Play more. Create more. Doubt more. Noodle more.</item>
+        <item>Enjoy absurdity — it\’s the universe\’s best seasoning.</item>
+        <item>RAmen.</item>
+        <item>Sing sea shanties in the shower. It pleases the FSM.</item>
+        <item>Always add a pinch of humor to your recipes.</item>
+        <item>Share your pasta with someone who needs comfort.</item>
+        <item>Look for joy in simple carbs.</item>
+        <item>Smile at your reflection. You are pasta-fect.</item>
+        <item>Take breaks. Even spaghetti needs time to rest.</item>
+        <item>Be curious like a noodle in boiling water.</item>
+        <item>Turn mistakes into marinara, not misery.</item>
+        <item>Honor your ancestors by cooking their favorite dish.</item>
+        <item>Leave room for dessert and surprises.</item>
+        <item>Invent a new pasta dish and call it holy.</item>
+        <item>Speak kindly, even when debating sauces.</item>
+        <item>Collect pasta shapes like treasures.</item>
+        <item>Don\’t rush — life is best served slowly simmered.</item>
+        <item>Keep your colander shiny and your thoughts open.</item>
+        <item>Practice gratitude before every bite.</item>
+        <item>Embrace your inner pirate, not your inner tyrant.</item>
+        <item>See life as a buffet — taste everything once.</item>
+        <item>Laugh at your own spaghetti jokes.</item>
+        <item>Wear a colander crown on special occasions.</item>
+        <item>Give compliments like sprinkles of Parmesan.</item>
+        <item>Read recipes like poetry and poetry like recipes.</item>
+        <item>Keep an emergency stash of noodles for hard times.</item>
+        <item>Make leftovers magical with creativity.</item>
+        <item>Remember that sauce stains fade, memories last.</item>
+        <item>Do random acts of pasta kindness.</item>
+        <item>Be open to the possibility of invisible meatballs.</item>
+        <item>Offer help without expecting a plate in return.</item>
+        <item>Build bridges, not breadsticks — or both if needed.</item>
+        <item>Dance in your kitchen as if FSM is watching.</item>
+        <item>Write blessings on napkins for friends.</item>
+        <item>Note any imperfections, such as the shape not matching the pasta.</item>
+        <item>Stay playful like noodles in boiling water.</item>
+        <item>Keep your conversations as rich as Alfredo sauce.</item>
+        <item>If in doubt, add garlic.</item>
+        <item>Never underestimate the healing power of hot soup.</item>
+        <item>Live boldly like a pirate with a full plate.</item>
+        <item>Take adventures, even if only to a new restaurant.</item>
+        <item>Honor diversity like a bowl of mixed pasta shapes.</item>
+        <item>Balance life like a forkful of spaghetti.</item>
+        <item>Don\’t cling too tightly — even pasta slides off the fork.</item>
+        <item>Offer forgiveness like endless breadsticks.</item>
+        <item>Keep your dreams as warm as fresh lasagna.</item>
+        <item>Let go of grudges like drained spaghetti water.</item>
+        <item>Trust your instincts — and your taste buds.</item>
+        <item>Be a source of warmth like baked ziti.</item>
+        <item>Always make extra sauce for unexpected guests.</item>
+        <item>Celebrate little victories with a plate of pasta.</item>
+        <item>Find happiness in the aroma of simmering sauce.</item>
+        <item>Appreciate the art of slow cooking.</item>
+        <item>Laugh when your noodles stick together.</item>
+        <item>Be patient — water boils when it\’s ready.</item>
+        <item>Make space for spontaneity like extra cheese.</item>
+        <item>Remember: carbs are love made edible.</item>
+        <item>Tell stories over dinner — it\’s ancient magic.</item>
+        <item>Build friendships like layers of lasagna.</item>
+        <item>Keep hope alive like yeast in dough.</item>
+        <item>Allow others to choose their own seasoning.</item>
+        <item>Never fear spice — embrace flavor in life.</item>
+        <item>Share warmth like a steaming bowl of ramen.</item>
+        <item>Take time to savor, not just swallow.</item>
+        <item>Turn rainy days into pasta parties.</item>
+        <item>Listen more than you stir.</item>
+        <item>Laugh until your sauce spills.</item>
+        <item>See problems as knots to untangle, like spaghetti.</item>
+        <item>Be adaptable like macaroni in any recipe.</item>
+        <item>Embrace weird ideas - they help create better dishes.</item>
+        <item>Give more hugs than servings of breadsticks.</item>
+        <item>Follow curiosity like steam from a boiling pot.</item>
+        <item>Honor creativity like handmade ravioli.</item>
+        <item>Don\’t fear getting messy — that\’s where fun lives.</item>
+        <item>Start small like a single noodle — then grow.</item>
+        <item>Keep calm and add olive oil.</item>
+        <item>Don\’t hoard recipes — share freely.</item>
+        <item>Love without conditions, like bottomless pasta bowls.</item>
+        <item>Speak with warmth like a hearty stew.</item>
+        <item>Find meaning in everyday rituals like stirring sauce.</item>
+        <item>Stay grounded like a heavy pot on the stove.</item>
+        <item>Explore new flavors — in food and in life.</item>
+        <item>Laugh off the burnt edges — they\’re just extra crispy.</item>
+        <item>Trust the process — even if the dough looks rough.</item>
+        <item>Be generous with your time, like a long simmer.</item>
+        <item>Keep learning like an apprentice in the kitchen.</item>
+        <item>Don\’t rush relationships — let them marinate.</item>
+        <item>Value effort more than perfection.</item>
+        <item>Take breaks to stir your own soul.</item>
+        <item>Celebrate mistakes as seasoning for growth.</item>
+        <item>Make time for joy like you make time to boil water.</item>
+        <item>Turn bitterness into sweetness with kindness.</item>
+        <item>Stay open to change like boiling pasta.</item>
+        <item>Let laughter bubble like sauce on the stove.</item>
+        <item>Serve life with extra cheese.</item>
+        <item>Don\’t let anger overcook your happiness.</item>
+        <item>Surround yourself with people who feel like comfort food.</item>
+        <item>Give compliments like sprinkles of Parmesan.</item>
+        <item>Find wonder in the steam rising from your plate.</item>
+        <item>Smile like pasta twirling on a fork.</item>
+        <item>Take nothing for granted — even the last meatball.</item>
+        <item>Create joy like making homemade noodles.</item>
+        <item>Live like spaghetti: messy but beautiful.</item>
+        <item>Keep your friendships as warm as fresh bread.</item>
+        <item>See obstacles as seasoning for strength.</item>
+        <item>Appreciate quiet moments like simmering broth.</item>
+        <item>Be a safe harbor like a pot for noodles.</item>
+        <item>Offer comfort like mac and cheese on a cold night.</item>
+        <item>Keep dreams alive like a slow-cooked sauce.</item>
+        <item>Be fearless like pirates on spaghetti seas.</item>
+        <item>Embrace change like pasta absorbs sauce.</item>
+        <item>Find sweetness like honey in a savory dish.</item>
+        <item>Stay humble like flour before it becomes bread.</item>
+        <item>Let love rise like dough in the sun.</item>
+        <item>Trust your recipe but improvise when needed.</item>
+        <item>Give second chances like reheating leftovers.</item>
+        <item>Keep faith like a sauce that takes hours to perfect.</item>
+        <item>Be patient like yeast working in silence.</item>
+        <item>Let go of pride like pasta water down the drain.</item>
+        <item>Offer peace like a warm bowl of soup.</item>
+        <item>Remember: laughter is the best spice.</item>
+        <item>Feed your soul with kindness and noodles.</item>
+        <item>Give more smiles than servings of tiramisu.</item>
+        <item>Stay soft-hearted like fresh gnocchi.</item>
+        <item>Learn something new every day, even a new sauce.</item>
+        <item>Keep your heart open like an empty bowl waiting for pasta.</item>
+        <item>Speak less, listen more, like water boiling quietly.</item>
+        <item>Celebrate diversity like a plate of mixed pasta shapes.</item>
+        <item>Keep promises like noodles keep sauce.</item>
+        <item>Find beauty in imperfections like broken spaghetti.</item>
+        <item>Share warmth like a loaf of fresh bread.</item>
+        <item>Dream big like an overflowing pot of pasta.</item>
+        <item>Never stop learning — even burnt meals teach lessons.</item>
+        <item>Smile often — it costs less than olive oil.</item>
+        <item>Take joy in the simple — like buttered noodles.</item>
+        <item>Be resilient like dough under pressure.</item>
+        <item>Forgive yourself like you forgive an overcooked dish.</item>
+        <item>Stay curious like a pirate on a new voyage.</item>
+        <item>Be generous like a full bread basket.</item>
+        <item>Laugh at yourself — even spaghetti trips sometimes.</item>
+        <item>Stay flexible like linguine in the wind.</item>
+        <item>Bring light like steam rising from a hot plate.</item>
+        <item>Treasure memories like handwritten recipes.</item>
+        <item>Take breaks before you boil over.</item>
+        <item>Find calm like noodles floating in water.</item>
+        <item>Create harmony like flavors blending in a sauce.</item>
+        <item>Celebrate togetherness like shared family meals.</item>
+        <item>Stay warm like bread fresh from the oven.</item>
+        <item>Give hope like a pot of soup on a cold night.</item>
+        <item>Trust time — both for pasta and for healing.</item>
+        <item>Share stories like breaking breadsticks.</item>
+        <item>Find laughter in the kitchen mess.</item>
+        <item>Be bold like extra garlic.</item>
+        <item>Keep peace like a table set for friends.</item>
+        <item>Love deeply like sauce clings to pasta.</item>
+        <item>Stay strong like cast iron but open like a bowl.</item>
+        <item>Take joy in giving — like passing the Parmesan.</item>
+        <item>Be playful like kids making pasta shapes.</item>
+        <item>Embrace surprises like hidden cheese in ravioli.</item>
+        <item>Stay present like bubbles in boiling water.</item>
+        <item>Give hugs like fresh baked rolls — warm and comforting.</item>
+        <item>Find magic in the everyday — even in spaghetti steam.</item>
+        <item>Celebrate little wins like tasting the first bite of pasta.</item>
+        <item>Stay authentic like a rustic homemade sauce.</item>
+        <item>Be adventurous like trying a new spice blend.</item>
+        <item>Give without expecting — like free breadsticks.</item>
+        <item>Stay optimistic like dough waiting to rise.</item>
+        <item>Offer kindness like a warm loaf to a hungry soul.</item>
+        <item>Find wonder like a child watching water boil.</item>
+        <item>Celebrate togetherness like sharing a pizza.</item>
+        <item>Stay patient like a sauce thickening slowly.</item>
+        <item>Give strength like a hearty meal on a hard day.</item>
+        <item>Take joy in feeding others.</item>
+        <item>Keep exploring — like discovering new pasta shapes.</item>
+        <item>Stay colorful like a plate of primavera.</item>
+        <item>Value time with loved ones like a shared meal.</item>
+        <item>Bring sweetness like tiramisu to the table.</item>
+        <item>Respect traditions but welcome new tastes.</item>
+        <item>Trust the heat to transform raw into ready.</item>
+        <item>Laugh when things spill — it means you\’re living.</item>
+        <item>Speak truthfully, but season with kindness.</item>
+        <item>Celebrate effort, not just perfection.</item>
+        <item>Take pride in simple joys like butter melting on pasta.</item>
+        <item>Stay curious like a pirate hunting for spice.</item>
+        <item>Keep joy bubbling like boiling pasta water.</item>
+        <item>Stay open like an empty plate waiting for blessings.</item>
+        <item>Offer forgiveness like passing the last meatball.</item>
+        <item>Bring lightness like foam rising on pasta water.</item>
+        <item>Take breaks — even noodles need to cool.</item>
+        <item>Stay humble like plain noodles in a world of sauces.</item>
+        <item>Bring peace like a warm meal shared in silence.</item>
+        <item>Laugh often — it\’s the secret ingredient of life.</item>
+        <item>Stay strong like a pot holding boiling dreams.</item>
+        <item>Enjoy the taste and spice of life.</item>
+        <item>Find joy in learning new recipes.</item>
+        <item>Keep kindness flowing like olive oil.</item>
+        <item>Be generous like an endless bread basket.</item>
+        <item>Stay balanced like salt and sweetness in a dish.</item>
+        <item>Offer encouragement like Parmesan sprinkled on top.</item>
+        <item>Be adaptable like sauce to any pasta shape.</item>
+        <item>Take joy in small things like grated cheese falling.</item>
+        <item>Find comfort in the familiar like Sunday spaghetti.</item>
+        <item>Stay playful like kids twirling noodles.</item>
+        <item>Be resilient like dough rolling under pressure.</item>
+        <item>Celebrate every meal like a holy feast.</item>
+        <item>Bring color into life like basil on tomato sauce.</item>
+        <item>Stay patient like bread rising slowly.</item>
+        <item>Keep laughter close like a pot close to the stove.</item>
+        <item>Celebrate your uniqueness like handmade pasta.</item>
+        <item>Stay creative like inventing new flavors.</item>
+        <item>Be bold like adding extra garlic.</item>
+        <item>Find peace like steam lifting from a hot dish.</item>
+        <item>Celebrate new beginnings like boiling fresh noodles.</item>
+        <item>Take time for gratitude like saying RAmen before meals.</item>
+        <item>Stay joyful like bubbles dancing in boiling water.</item>
+        <item>Be open to learning like a cookbook waiting to be read.</item>
+        <item>Keep dreams alive like yeast growing in the dough.</item>
+        <item>Take time to stir life slowly and with care.</item>
+        <item>Celebrate your path even when it twists like fusilli.</item>
+        <item>Stay curious like searching for the perfect spice.</item>
+        <item>Give warmth like soup on a rainy afternoon.</item>
+        <item>Stay simple like spaghetti, yet full of possibilities.</item>
+        <item>Be grateful like someone tasting their first bite of pasta.</item>
+        <item>Bring joy like a surprise dessert.</item>
+        <item>Keep traditions alive but season with change.</item>
+        <item>Stay positive like a perfectly cooked al dente bite.</item>
+        <item>Celebrate friendship like a shared plate of antipasti.</item>
+        <item>Take pride in giving like passing extra sauce.</item>
+        <item>Find strength like cast iron holding endless meals.</item>
+        <item>Appreciate humor - it will prevent the sauce from burning.</item>
+        <item>Stay open like an empty bowl ready to be filled.</item>
+        <item>Laugh when noodles slip — life is slippery too.</item>
+        <item>Give credit to the tastes and the people who create them.</item>
+        <item>Take comfort in routine like Sunday pasta night.</item>
+        <item>Stay light-hearted like dough rising happily.</item>
+        <item>Find blessings in broken spaghetti.</item>
+        <item>Notice the changes, like a sauce that gets thicker over time.</item>
+        <item>Be present like a simmering sauce on the stove.</item>
+        <item>Celebrate every meal like a gift.</item>
+        <item>Find beauty in crumbs — they tell stories.</item>
+        <item>Stay strong yet flexible like fresh linguine.</item>
+        <item>Bring joy like adding cheese to every dish.</item>
+        <item>Take breaks before boiling over with stress.</item>
+        <item>Find love in the little things — even a single noodle.</item>
+        <item>Value good company more than good food.</item>
+        <item>Stay balanced like salt and pepper in harmony.</item>
+        <item>Be bold like adding a secret spice.</item>
+        <item>Celebrate life — because we all came from the same pot of water.</item>
+        <item>Stay grateful like finishing the last bite of dessert.</item>
+        <item>Enjoy today, it is as fleeting as the steam rising from your pasta.</item>
+        <item>Let kindness flow like honey into hot tea.</item>
+        <item>Add joy to ordinary days like salt to a bland soup.</item>
+        <item>Stay bright like tomatoes basking in sunlight.</item>
+        <item>Be bold like chili in a gentle dish.</item>
+        <item>Take comfort in the small things — even crumbs matter.</item>
+    </string-array>
+
+</resources>

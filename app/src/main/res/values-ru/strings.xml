@@ -1,0 +1,24 @@
+<resources>
+    <string name="advice_copied">совет скопирован</string>
+    <string name="title_advices">Наполнись мудростью Летающего Макаронного Монстра</string>
+    <string name="get_advice">Получить совет дня</string>
+    <string name="get_ads">Сделать подношение для ЛММ</string>
+    <string name="loading_ads">Подношение готовится</string>
+    <string name="is_over">Советы закончились</string>
+    <string name="permission_needed">Требуется разрешение</string>
+    <string name="text_permission_notifications">Это разрешение необходимо для уведомлений. Пожалуйста, включите его в настройках приложения.</string>
+    <string name="go_settings">Перейти в настройки</string>
+    <string name="cancel">Не буду</string>
+    <string name="ok">РАминь</string>
+
+    <string name="dialog_stop_message">Стой, Смельчак!</string>
+    <string name="dialog_message_limit">Ты жаждешь слишком много советов за день, о алчный в знаниях! Приходи завтра, когда макароны свежие, или…</string>
+    <string name="dialog_message_offering">Дабы продолжить насыщать свой разум аль денте мудростью, потребуется приношение Его Макаронной Милости!</string>
+
+    <!--    Настройки-->
+    <string name="language">Язык</string>
+    <string name="title_settings">Настройки</string>
+    <string name="enable_notifications">Включить уведомления</string>
+    <string name="time_for_advice">Время для совета</string>
+    <string name="dismiss">Отменить</string>
+</resources>
