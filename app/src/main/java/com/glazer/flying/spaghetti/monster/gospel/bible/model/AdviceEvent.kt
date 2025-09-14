@@ -1,6 +1,5 @@
 package com.glazer.flying.spaghetti.monster.gospel.bible.model
 
-import android.app.Activity
 import androidx.compose.runtime.Immutable
 
 @Immutable
