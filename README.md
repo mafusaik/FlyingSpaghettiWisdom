@@ -19,3 +19,13 @@ This project uses **Gradle** for building.
    ```bash
    git clone https://github.com/mafusaik/FlyingSpaghettiWisdom.git
    cd FlyingSpaghettiWisdom
+2. Build the release APK:
+  ./gradlew assembleRelease
+3. The generated APK will be located in:
+  app/build/outputs/apk/release/
+
+## Support / Donate
+
+If you like this project, you can support development via:
+
+- USDT (TRC20) TStFrPQjTMMoMVF8TMUMxdeti5hfSkMRFp
