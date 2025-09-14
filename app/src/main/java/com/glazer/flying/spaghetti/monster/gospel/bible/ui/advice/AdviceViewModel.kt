@@ -1,10 +1,8 @@
 package com.glazer.flying.spaghetti.monster.gospel.bible.ui.advice
 
-import android.app.Activity
 import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.glazer.flying.spaghetti.monster.gospel.bible.ads.RewardedAdRepository
 import com.glazer.flying.spaghetti.monster.gospel.bible.model.AdviceUIState
 import com.glazer.flying.spaghetti.monster.gospel.bible.domain.repository.AdviceRepository
 import com.glazer.flying.spaghetti.monster.gospel.bible.domain.repository.PreferencesRepository
@@ -28,7 +26,6 @@ import javax.inject.Inject
 @HiltViewModel
 class AdviceViewModel @Inject constructor(
     private val adviceRepository: AdviceRepository,
-    private val adsRepository: RewardedAdRepository,
     private val prefRepository: PreferencesRepository,
     private val clipboard: SystemClipboard
 ) : ViewModel() {
@@ -74,17 +71,6 @@ class AdviceViewModel @Inject constructor(
             is AdviceEvent.CopyAdvice -> {
                 Log.i("ADVICE_TAG", "CopyAdvice")
                 copyAdvice(event.text)
-            }
-
-            is AdviceEvent.ShowAd -> {
-                Log.i("ADVICE_TAG", "ShowAd ${event.activity}")
-                val activity = event.activity ?: return
-                _uiState.update { it.copy(isAdLoading = true, buttonState = ButtonUiState.Loading) }
-                if (_uiState.value.isAdLoaded) {
-                    show(activity)
-                } else {
-                    prepareRewardedAd(activity)
-                }
             }
 
             is AdviceEvent.ShowAdDialog -> {
@@ -141,46 +127,4 @@ class AdviceViewModel @Inject constructor(
     fun setInitAdvice(advice: String) {
         adviceRepository.setAdvice(advice)
     }
-
-    private fun prepareRewardedAd(activity: Activity) {
-        viewModelScope.launch {
-            val consentGiven = adsRepository.ensureConsent(activity)
-            Log.i("ADVICE_TAG", "prepareRewardedAd $consentGiven")
-            if (consentGiven) {
-                val result = adsRepository.loadRewardedAd()
-                Log.i("ADVICE_TAG", "prepareRewardedAd result ${result.isSuccess}")
-                _uiState.update { it.copy(isAdLoaded = result.isSuccess) }
-                if (result.isSuccess) {
-                    handleEvent(AdviceEvent.ShowAd(activity))
-                } else {
-                    adsRepository.loadRewardedAd()
-                }
-            } else {
-                _uiState.update {
-                    it.copy(
-                        isAdLoading = false,
-                        buttonState = ButtonUiState.Offering
-                    )
-                }
-            }
-        }
-    }
-
-
-    private fun show(activity: Activity) {
-        adsRepository.showRewardedAd(
-            activity,
-            onReward = {
-                decrementAdviceCount()
-            },
-            onAdClosed = {
-                viewModelScope.launch {
-                    val result = adsRepository.loadRewardedAd()
-                    _uiState.update { it.copy(isAdLoaded = result.isSuccess) }
-                }
-                _uiState.update { it.copy(isAdLoading = false) }
-            }
-        )
-    }
-
 }

@@ -72,10 +72,6 @@ dependencies {
     ksp(libs.androidx.hilt.compiler)
     implementation(libs.hilt.navigation.compose)
 
-    //Ads
-    implementation(libs.user.messaging.platform)
-    implementation(libs.play.services.ads)
-
     //Core
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)

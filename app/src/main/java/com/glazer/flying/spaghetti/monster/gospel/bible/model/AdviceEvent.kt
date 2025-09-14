@@ -10,7 +10,5 @@ sealed class AdviceEvent {
     @Immutable
     data class CopyAdvice(val text: String) : AdviceEvent()
     @Immutable
-    data class ShowAd(val activity: Activity?) : AdviceEvent()
-    @Immutable
     data class ShowAdDialog(val isShow: Boolean, val isAdEnable: Boolean) : AdviceEvent()
 }

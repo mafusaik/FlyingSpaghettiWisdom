@@ -112,15 +112,12 @@ private fun AdviceScreen(
 
             GetCompliment(
                 Modifier.align(Alignment.CenterHorizontally),
-                activity,
                 state,
                 textScale
             ) { event ->
                 onEvent(event)
             }
         }
-
-
 
         if (state.showDialog) {
             OfferingDialog (
@@ -177,7 +174,6 @@ fun AnimatedText(
 @Composable
 private fun GetCompliment(
     modifier: Modifier,
-    activity: Activity?,
     state: AdviceUIState,
     textScale: Float,
     onClick: (AdviceEvent?) -> Unit
@@ -193,7 +189,7 @@ private fun GetCompliment(
     val event = when(state.buttonState){
         is ButtonUiState.Loading -> null
         is ButtonUiState.Advice -> AdviceEvent.GetAdvice
-        is ButtonUiState.Offering -> AdviceEvent.ShowAd(activity)
+        is ButtonUiState.Offering -> null
         is ButtonUiState.IsOver -> AdviceEvent.ShowAdDialog(isShow = true, isAdEnable = false)
     }
 
