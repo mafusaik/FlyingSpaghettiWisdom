@@ -4,17 +4,11 @@
 
 ## 📸 Screenshots
 
-_Add your screenshots to the `images/` folder and update the paths below._
-
-### Book Screen
-![Book Screen](images/screenshot_book.png)
-
-### Advices
-![Advices](images/screenshot_advice.png)
-
-### Settings
-![Settings](images/screenshot_settings.png)
-
+<p align="center">
+  <img src="images/screenshot_book.png" alt="Book Screen" width="250">
+  <img src="images/screenshot_advice.png" alt="Advices Screen" width="250">
+  <img src="images/screenshot_settings.png" alt="Settings Screen" width="250">
+</p>
 ---
 
 ## 🔧 Build Instructions
@@ -25,3 +19,13 @@ This project uses **Gradle** for building.
    ```bash
    git clone https://github.com/mafusaik/FlyingSpaghettiWisdom.git
    cd FlyingSpaghettiWisdom
+2. Build the release APK:
+  ./gradlew assembleRelease
+3. The generated APK will be located in:
+  app/build/outputs/apk/release/
+
+## Support / Donate
+
+If you like this project, you can support development via:
+
+- USDT (TRC20) TStFrPQjTMMoMVF8TMUMxdeti5hfSkMRFp
