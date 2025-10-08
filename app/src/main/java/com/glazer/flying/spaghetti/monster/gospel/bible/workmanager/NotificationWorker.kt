@@ -5,7 +5,6 @@ import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
-import android.util.Log
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import androidx.hilt.work.HiltWorker
@@ -15,34 +14,57 @@ import androidx.work.workDataOf
 import com.glazer.flying.spaghetti.monster.gospel.bible.MainActivity
 import com.glazer.flying.spaghetti.monster.gospel.bible.R
 import com.glazer.flying.spaghetti.monster.gospel.bible.domain.repository.AdviceRepository
+import com.glazer.flying.spaghetti.monster.gospel.bible.domain.repository.NotificationRepository
+import com.glazer.flying.spaghetti.monster.gospel.bible.domain.repository.PreferencesRepository
 import com.glazer.flying.spaghetti.monster.gospel.bible.navigation.BottomScreens
 import com.glazer.flying.spaghetti.monster.gospel.bible.utils.Constants
+import com.glazer.flying.spaghetti.monster.gospel.bible.utils.Constants.LATE_MINUTES
 import dagger.assisted.Assisted
 import dagger.assisted.AssistedInject
+import java.time.LocalDateTime
 
 @HiltWorker
 class NotificationWorker @AssistedInject constructor(
     @Assisted appContext: Context,
     @Assisted params: WorkerParameters,
-    private val repository: AdviceRepository
+    private val adviceRepository: AdviceRepository,
+    private val prefRepository: PreferencesRepository,
+    private val notificationRepository: NotificationRepository
 ) : CoroutineWorker(appContext, params) {
 
     private val context = appContext
-    
+
     override suspend fun doWork(): Result {
         return try {
-            Log.i("WORK_MANAGER", "doWork")
-            val message = repository.nextAdvice()
+            if (!prefRepository.getIsNotificationEnabled()) {
+                Result.success()
+            }
+            val message = adviceRepository.nextAdvice()
             showNotification(message)
+            checkLateWork()
             Result.success(workDataOf(Constants.KEY_MESSAGE to message))
         } catch (e: Exception) {
             Result.failure()
         }
     }
-    
+
+    private suspend fun checkLateWork() {
+        val now = LocalDateTime.now()
+        val (targetHour, targetMinute) = prefRepository.getNotificationTime()
+        val targetTime = LocalDateTime.of(now.year, now.month, now.dayOfMonth, targetHour, targetMinute)
+        val overTime = targetTime.plusMinutes(LATE_MINUTES)
+        if (now.isAfter(overTime)) {
+            rescheduleWork(targetHour, targetMinute)
+        }
+    }
+
+    private suspend fun rescheduleWork(hour: Int, minute: Int) {
+        notificationRepository.cancelNotificationWork()
+        notificationRepository.scheduleNotification(hour, minute)
+    }
+
     @SuppressLint("MissingPermission")
     private fun showNotification(message: String) {
-        Log.i("WORK_MANAGER", "showNotification $message")
         val notificationManager = NotificationManagerCompat.from(context)
 
         val pendingIntent = createPendingIntent(BottomScreens.Advice.route)

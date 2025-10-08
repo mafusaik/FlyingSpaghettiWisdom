@@ -46,6 +46,7 @@ import com.glazer.flying.spaghetti.monster.gospel.bible.ui.components.Volumetric
 import com.glazer.flying.spaghetti.monster.gospel.bible.ui.components.OfferingDialog
 import com.glazer.flying.spaghetti.monster.gospel.bible.ui.theme.ColorMeatball
 import com.glazer.flying.spaghetti.monster.gospel.bible.ui.theme.ColorMeatballDark
+import com.glazer.flying.spaghetti.monster.gospel.bible.utils.rememberThrottleClick
 
 @Composable
 fun AdviceScreen(
@@ -67,7 +68,7 @@ fun AdviceScreen(
         }
     }
 
-        Log.d("RecompositionTracker", "AdviceScreen recomposed")
+    Log.d("RecompositionTracker", "AdviceScreen recomposed")
 
     AdviceScreen(
         activity,
@@ -84,9 +85,11 @@ private fun AdviceScreen(
     textScale: Float,
     onEvent: (AdviceEvent?) -> Unit
 ) {
-
+    val throttledClick = rememberThrottleClick()
     Box(
-        modifier = Modifier.fillMaxSize().background(Color.Black)
+        modifier = Modifier
+            .fillMaxSize()
+            .background(Color.Black)
     ) {
         Image(
             painter = painterResource(R.drawable.space_meatballs),
@@ -95,7 +98,8 @@ private fun AdviceScreen(
             contentScale = ContentScale.Crop
         )
 
-        Column(Modifier.fillMaxSize(),
+        Column(
+            Modifier.fillMaxSize(),
             verticalArrangement = Arrangement.SpaceBetween
         ) {
             Text(
@@ -116,14 +120,14 @@ private fun AdviceScreen(
                 state,
                 textScale
             ) { event ->
-                onEvent(event)
+                throttledClick {
+                    onEvent(event)
+                }
             }
         }
 
-
-
         if (state.showDialog) {
-            OfferingDialog (
+            OfferingDialog(
                 onDonate = {
                     onEvent(AdviceEvent.ShowAdDialog(isShow = false, isAdEnable = true))
                 },
@@ -149,14 +153,17 @@ fun AnimatedText(
         exit = fadeOut(),
         modifier = modifier
     ) {
+        val throttledClick = rememberThrottleClick()
         Box(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(horizontal = 20.dp)
                 .clickable {
-                    val adviceText = state.advice
-                    activity?.showToast(adviceText)
-                    onEvent(AdviceEvent.CopyAdvice(adviceText))
+                    throttledClick {
+                        val adviceText = state.advice
+                        activity?.showToast(adviceText)
+                        onEvent(AdviceEvent.CopyAdvice(adviceText))
+                    }
                 },
             contentAlignment = Alignment.Center
         ) {
@@ -182,25 +189,26 @@ private fun GetCompliment(
     textScale: Float,
     onClick: (AdviceEvent?) -> Unit
 ) {
-    Log.i("ADVICE_TAG", "UI state.adviceCount ${state.adviceCount}")
-    val buttonText = when(state.buttonState){
+    Log.i("ADVICE_TAG", "UI state.buttonState ${state.buttonState}")
+    val buttonText = when (state.buttonState) {
         is ButtonUiState.Loading -> stringResource(R.string.loading_ads)
         is ButtonUiState.Advice -> stringResource(R.string.get_advice)
         is ButtonUiState.Offering -> stringResource(R.string.get_ads)
         is ButtonUiState.IsOver -> stringResource(R.string.is_over)
     }
 
-    val event = when(state.buttonState){
+    val event = when (state.buttonState) {
         is ButtonUiState.Loading -> null
         is ButtonUiState.Advice -> AdviceEvent.GetAdvice
         is ButtonUiState.Offering -> AdviceEvent.ShowAd(activity)
         is ButtonUiState.IsOver -> AdviceEvent.ShowAdDialog(isShow = true, isAdEnable = false)
     }
 
-    val buttonModifier = if (textScale < 1.2f){
-        Modifier.aspectRatio(1.4f)
+    val buttonModifier = if (textScale < 1.2f) {
+        Modifier
+            .aspectRatio(1.4f)
             .padding(bottom = 120.dp, start = 24.dp, end = 24.dp)
-    } else{
+    } else {
         Modifier
             .padding(bottom = 120.dp, start = 24.dp, end = 24.dp)
             .height(160.dp)

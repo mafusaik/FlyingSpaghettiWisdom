@@ -71,7 +71,8 @@ fun SettingsScreen(
         startLanguage = startLanguage,
         languages = languages,
         insetsController = insetsController,
-        onEvent = { event -> viewModel.handleEvent(event) })
+        onEvent = { event -> viewModel.handleEvent(event) }
+    )
 }
 
 @OptIn(ExperimentalMaterial3Api::class)

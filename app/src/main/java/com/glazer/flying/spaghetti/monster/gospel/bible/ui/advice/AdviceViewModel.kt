@@ -4,7 +4,7 @@ import android.app.Activity
 import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.glazer.flying.spaghetti.monster.gospel.bible.ads.RewardedAdRepository
+import com.glazer.flying.spaghetti.monster.gospel.bible.ads.AdManager
 import com.glazer.flying.spaghetti.monster.gospel.bible.model.AdviceUIState
 import com.glazer.flying.spaghetti.monster.gospel.bible.domain.repository.AdviceRepository
 import com.glazer.flying.spaghetti.monster.gospel.bible.domain.repository.PreferencesRepository
@@ -28,7 +28,7 @@ import javax.inject.Inject
 @HiltViewModel
 class AdviceViewModel @Inject constructor(
     private val adviceRepository: AdviceRepository,
-    private val adsRepository: RewardedAdRepository,
+    private val adsRepository: AdManager,
     private val prefRepository: PreferencesRepository,
     private val clipboard: SystemClipboard
 ) : ViewModel() {
@@ -113,13 +113,14 @@ class AdviceViewModel @Inject constructor(
     }
 
     private fun updateCount(newAmount: Int) {
-        val buttonState = getButtonState(newAmount, isDialogShowed)
-        _uiState.update { it.copy(adviceCount = newAmount, buttonState = buttonState) }
+        _uiState.update { it.copy(adviceCount = newAmount) }
         prefRepository.setAdviceAmount(newAmount)
     }
 
     private fun getButtonState(amount: Int, isDialogShowed: Boolean): ButtonUiState {
-        return if (amount < 3) ButtonUiState.Advice
+        Log.i("ADVICE_TAG", "getButtonState")
+        return if (_uiState.value.isAdLoading) ButtonUiState.Loading
+        else if (amount < 3) ButtonUiState.Advice
         else if (isDialogShowed) ButtonUiState.Offering
         else ButtonUiState.IsOver
     }
@@ -172,13 +173,13 @@ class AdviceViewModel @Inject constructor(
             activity,
             onReward = {
                 decrementAdviceCount()
+                _uiState.update { it.copy(isAdLoading = false) }
             },
             onAdClosed = {
                 viewModelScope.launch {
                     val result = adsRepository.loadRewardedAd()
                     _uiState.update { it.copy(isAdLoaded = result.isSuccess) }
                 }
-                _uiState.update { it.copy(isAdLoading = false) }
             }
         )
     }

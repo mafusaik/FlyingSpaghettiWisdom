@@ -8,10 +8,12 @@ import com.glazer.flying.spaghetti.monster.gospel.bible.domain.constants.AppCons
 import com.glazer.flying.spaghetti.monster.gospel.bible.domain.constants.AppConstants.KEY_MINUTES
 import com.glazer.flying.spaghetti.monster.gospel.bible.domain.constants.AppConstants.KEY_NOTIFICATIONS
 import com.glazer.flying.spaghetti.monster.gospel.bible.domain.constants.AppConstants.KEY_RECENT_ADVICE
+import com.glazer.flying.spaghetti.monster.gospel.bible.domain.constants.AppConstants.KEY_RECENT_ADVICE_LIST
 import com.glazer.flying.spaghetti.monster.gospel.bible.domain.constants.AppConstants.KEY_SAVED_OFFSET
 import com.glazer.flying.spaghetti.monster.gospel.bible.domain.constants.AppConstants.KEY_SAVED_PAGE
 import com.glazer.flying.spaghetti.monster.gospel.bible.domain.constants.AppConstants.PREFERENCES_NAME_TOKEN
 import com.glazer.flying.spaghetti.monster.gospel.bible.domain.sharedpreferences.PrefsManager
+import com.google.gson.Gson
 import java.util.Locale
 import javax.inject.Inject
 
@@ -20,7 +22,27 @@ internal class PrefsManagerImpl @Inject constructor(
 ) : PrefsManager {
     private val prefs =
         context.getSharedPreferences(PREFERENCES_NAME_TOKEN, Context.MODE_PRIVATE)
+    private val gson = Gson()
 
+    override var recentListAdvices: List<String>
+        get() {
+            val json = prefs.getString(KEY_RECENT_ADVICE_LIST, null) ?: return emptyList()
+            return gson.fromJson(json, Array<String>::class.java).toList()
+        }
+        set(value) {
+            val json = gson.toJson(value)
+            prefs.edit().putString(KEY_RECENT_ADVICE_LIST, json).apply()
+        }
+
+    override fun addRecentAdvice(advice: String) {
+        val current = recentListAdvices.toMutableList()
+        current.remove(advice)
+        current.add(advice)
+
+        recentListAdvices = current
+    }
+
+    //for delete! don't use!
     override var recentAdvices: Set<String>
         get() = prefs.getStringSet(KEY_RECENT_ADVICE, emptySet()) ?: emptySet()
         set(value) {
@@ -52,7 +74,7 @@ internal class PrefsManagerImpl @Inject constructor(
         }
 
     override var notificationTime: Pair<Int, Int>
-        get() = prefs.getInt(KEY_HOURS, 0) to prefs.getInt(KEY_MINUTES, 0)
+        get() = prefs.getInt(KEY_HOURS, -1) to prefs.getInt(KEY_MINUTES, -1)
         set(value) {
             prefs.edit()
                 .putInt(KEY_HOURS, value.first)

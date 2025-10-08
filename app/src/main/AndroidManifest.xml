@@ -18,7 +18,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.PastafarianBible"
-        tools:targetApi="35">
+        tools:targetApi="36">
         <activity
             android:name=".MainActivity"
             android:exported="true"
@@ -42,6 +42,14 @@
         <meta-data
             android:name="com.google.android.gms.ads.AD_MANAGER_APP"
             android:value="true"/>
+
+        <meta-data
+            android:name="com.yandex.mobile.ads.AUTOMATIC_SDK_INITIALIZATION"
+            android:value="false" />
+
+        <meta-data
+            android:name="yandex_mobileads_test_mode"
+            android:value="true" />
     </application>
 
 </manifest>

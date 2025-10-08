@@ -15,19 +15,19 @@ import kotlinx.coroutines.suspendCancellableCoroutine
 import javax.inject.Inject
 import kotlin.coroutines.resume
 
-class RewardedAdRepository @Inject constructor(
+class GoogleAdManager @Inject constructor(
     @ApplicationContext private val context: Context
-) {
+) : AdManager {
     private var rewardedAd: RewardedAd? = null
     private var initialized = false
 
-    suspend fun ensureConsent(activity: Activity): Boolean {
+    override suspend fun ensureConsent(activity: Activity): Boolean {
         return suspendCancellableCoroutine { continuation ->
             val consentManager = GoogleMobileAdsConsentManager.getInstance(context)
 
             consentManager.gatherConsent(activity) { consentError ->
                 if (consentError != null) {
-                    Log.w("Ads", "Consent error: ${consentError.errorCode}")
+                    Log.w(ADS_TAG, "Consent error: ${consentError.errorCode}")
                 }
 
                 if (consentManager.canRequestAds) {
@@ -46,9 +46,9 @@ class RewardedAdRepository @Inject constructor(
         }
     }
 
-    suspend fun loadRewardedAd(): Result<Unit> {
+    override suspend fun loadRewardedAd(): Result<Unit> {
         return suspendCancellableCoroutine { continuation ->
-            RewardedAd.load(context, Constants.TEST_AD_UNIT_ID, AdRequest.Builder().build(),
+            RewardedAd.load(context, Constants.AD_UNIT_ID, AdRequest.Builder().build(),
                 object : RewardedAdLoadCallback() {
                     override fun onAdLoaded(ad: RewardedAd) {
                         rewardedAd = ad
@@ -56,14 +56,15 @@ class RewardedAdRepository @Inject constructor(
                     }
 
                     override fun onAdFailedToLoad(error: LoadAdError) {
+                        Log.i(ADS_TAG, "onAdFailedToLoad ${error.message}")
                         continuation.resume(Result.failure(Exception(error.message)))
                     }
                 })
         }
     }
 
-    fun showRewardedAd(activity: Activity, onReward: () -> Unit, onAdClosed: () -> Unit) {
-        Log.i("ADVICE_TAG", "showRewardedAd $rewardedAd")
+    override fun showRewardedAd(activity: Activity, onReward: () -> Unit, onAdClosed: () -> Unit) {
+        Log.i(ADS_TAG, "showRewardedAd $rewardedAd")
         rewardedAd?.show(activity) { onReward() }
         rewardedAd?.fullScreenContentCallback = object : FullScreenContentCallback() {
             override fun onAdDismissedFullScreenContent() {
@@ -71,5 +72,9 @@ class RewardedAdRepository @Inject constructor(
                 onAdClosed()
             }
         }
+    }
+
+    companion object{
+        private const val ADS_TAG = "ADS_TAG_GOOGLE"
     }
 }

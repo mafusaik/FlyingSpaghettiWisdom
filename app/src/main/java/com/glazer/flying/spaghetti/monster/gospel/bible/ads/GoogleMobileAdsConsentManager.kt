@@ -2,6 +2,7 @@ package com.glazer.flying.spaghetti.monster.gospel.bible.ads
 
 import android.app.Activity
 import android.content.Context
+import android.util.Log
 import com.glazer.flying.spaghetti.monster.gospel.bible.utils.Constants
 import com.google.android.ump.ConsentDebugSettings
 import com.google.android.ump.ConsentForm.OnConsentFormDismissedListener
@@ -45,7 +46,7 @@ class GoogleMobileAdsConsentManager private constructor(context: Context) {
     // For testing purposes, you can force a DebugGeography of EEA or NOT_EEA.
     val debugSettings =
       ConsentDebugSettings.Builder(activity)
-       // .setDebugGeography(ConsentDebugSettings.DebugGeography.DEBUG_GEOGRAPHY_EEA)
+        .setDebugGeography(ConsentDebugSettings.DebugGeography.DEBUG_GEOGRAPHY_EEA)
         .addTestDeviceHashedId(Constants.DEVICE_HASHED_ID)
         .build()
 
@@ -59,12 +60,15 @@ class GoogleMobileAdsConsentManager private constructor(context: Context) {
       activity,
       params,
       {
+        Log.i("ADS_TAG", "requestConsentInfo loadAndShowConsentForm")
         UserMessagingPlatform.loadAndShowConsentFormIfRequired(activity) { formError ->
           // Consent has been gathered.
+          Log.i("ADS_TAG", "requestConsentInfo Consent has been gathered")
           onConsentGatheringCompleteListener.consentGatheringComplete(formError)
         }
       },
       { requestConsentError ->
+        Log.i("ADS_TAG", "requestConsentInfo error ${requestConsentError.message} ${requestConsentError.errorCode}")
         onConsentGatheringCompleteListener.consentGatheringComplete(requestConsentError)
       },
     )

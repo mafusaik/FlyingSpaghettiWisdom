@@ -128,7 +128,6 @@ class MainActivity : ComponentActivity() {
     }
 
     override fun attachBaseContext(newBase: Context) {
-        Log.i("MAIN_ACTIVITY", "attachBaseContext")
         val languageCode = getLanguageCode(newBase)
         val overrideConfiguration = Configuration(newBase.resources.configuration)
         overrideConfiguration.fontScale = 1.0f
@@ -180,8 +179,9 @@ class MainActivity : ComponentActivity() {
             PREFERENCES_NAME_TOKEN,
             Context.MODE_PRIVATE
         )
-        return sharedPreferences.getString(KEY_LANGUAGE, DEFAULT_LANGUAGE)
-            ?: DEFAULT_LANGUAGE
+        val defaultLang = Locale.getDefault().language
+        return sharedPreferences.getString(KEY_LANGUAGE, defaultLang)
+            ?: defaultLang
     }
 
     private fun hideSystemUI() {

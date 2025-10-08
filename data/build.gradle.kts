@@ -36,15 +36,15 @@ android {
 dependencies {
     implementation(project(":domain"))
 
-    // Room
-    implementation(libs.androidx.room.runtime)
-    implementation(libs.androidx.room.ktx)
+    //WorkManager
     implementation(libs.androidx.work.runtime.ktx)
-    ksp(libs.androidx.room.compiler)
 
     //Hilt
     implementation(libs.hilt.core)
     ksp(libs.hilt.compiler)
+
+    //Gson
+    implementation(libs.gson)
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)

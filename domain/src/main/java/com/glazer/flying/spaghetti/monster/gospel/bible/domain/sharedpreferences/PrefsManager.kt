@@ -2,7 +2,11 @@ package com.glazer.flying.spaghetti.monster.gospel.bible.domain.sharedpreference
 
 interface PrefsManager {
 
+    var recentListAdvices: List<String>
+
     var recentAdvices: Set<String>
+
+    fun addRecentAdvice(advice: String)
 
     var savedPage: Int
 

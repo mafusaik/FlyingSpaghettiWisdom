@@ -9,14 +9,14 @@ plugins {
 
 android {
     namespace = "com.glazer.flying.spaghetti.monster.gospel.bible"
-    compileSdk = 35
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "com.glazer.flying.spaghetti.monster.gospel.bible"
         minSdk = 26
-        targetSdk = 35
-        versionCode = 3
-        versionName = "0.01"
+        targetSdk = 36
+        versionCode = 7
+        versionName = "0.08"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -75,6 +75,7 @@ dependencies {
     //Ads
     implementation(libs.user.messaging.platform)
     implementation(libs.play.services.ads)
+    implementation(libs.mobileads)
 
     //Core
     implementation(libs.androidx.core.ktx)

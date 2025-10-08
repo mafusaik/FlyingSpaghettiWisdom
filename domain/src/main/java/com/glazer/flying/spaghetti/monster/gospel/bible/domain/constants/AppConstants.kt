@@ -3,6 +3,7 @@ package com.glazer.flying.spaghetti.monster.gospel.bible.domain.constants
 object AppConstants {
     // SharedPreferences
     const val PREFERENCES_NAME_TOKEN = "setting_storage_token"
+    const val KEY_RECENT_ADVICE_LIST = "key_recent_advice_list"
     const val KEY_RECENT_ADVICE = "key_recent_advice"
     const val KEY_SAVED_PAGE = "key_saved_page"
     const val KEY_SAVED_OFFSET = "key_saved_offset"

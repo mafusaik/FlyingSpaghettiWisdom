@@ -2,6 +2,7 @@ package com.glazer.flying.spaghetti.monster.gospel.bible.data.repositoryimpl
 
 import android.content.Context
 import android.content.res.Configuration
+import android.util.Log
 import com.glazer.flying.spaghetti.monster.gospel.bible.data.R
 import com.glazer.flying.spaghetti.monster.gospel.bible.domain.repository.AdviceRepository
 import com.glazer.flying.spaghetti.monster.gospel.bible.domain.sharedpreferences.PrefsManager
@@ -23,17 +24,17 @@ internal class AdviceRepositoryImpl @Inject constructor(
     private val adviceSet = LinkedHashSet<String>()
     private val maxSize = 100
 
-    private val currentAdvice = MutableStateFlow(prefsManager.recentAdvices.lastOrNull() ?: "")
+    private val currentAdvice = MutableStateFlow(prefsManager.recentListAdvices.lastOrNull() ?: "")
 
     override fun currentAdvice(): Flow<String> {
+        Log.i("ADVICE_TAG", "recentAdvices ${prefsManager.recentListAdvices.joinToString()}")
         return currentAdvice.asStateFlow()
     }
 
     override suspend fun nextAdvice(): String {
         val advices = context.resources.getStringArray(R.array.advices)
 
-        val recentAdvices = prefsManager.recentAdvices
-        adviceSet.addAll(recentAdvices)
+        val recentAdvices = prefsManager.recentListAdvices
 
         var randomAdvice: String
         do {
@@ -54,7 +55,8 @@ internal class AdviceRepositoryImpl @Inject constructor(
             }
         }
         adviceSet.add(advice)
-        prefsManager.recentAdvices = adviceSet
+        prefsManager.addRecentAdvice(advice)
+
         setAdvice(advice)
     }
 
@@ -63,7 +65,7 @@ internal class AdviceRepositoryImpl @Inject constructor(
     }
 
     override suspend fun restoreAdvices() {
-        val recentAdvices = prefsManager.recentAdvices
+        val recentAdvices = prefsManager.recentListAdvices
         if (recentAdvices.isNotEmpty()) adviceSet.addAll(recentAdvices)
         else adviceSet.add(nextAdvice())
     }
@@ -71,7 +73,7 @@ internal class AdviceRepositoryImpl @Inject constructor(
 
     override suspend fun changeAdviceLang() {
         val locale = when (prefsManager.currentLanguage) {
-            "ru" -> Locale("ru")
+            LANGUAGE_RU -> Locale(LANGUAGE_RU)
             else -> Locale.ENGLISH
         }
 
@@ -79,9 +81,12 @@ internal class AdviceRepositoryImpl @Inject constructor(
         configuration.setLocale(locale)
         context = context.createConfigurationContext(configuration)
 
-        prefsManager.recentAdvices = emptySet()
         withContext(Dispatchers.IO){
             nextAdvice()
         }
+    }
+
+    companion object{
+        const val LANGUAGE_RU = "ru"
     }
 }
