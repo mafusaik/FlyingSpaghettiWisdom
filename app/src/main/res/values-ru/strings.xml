@@ -10,6 +10,9 @@
     <string name="go_settings">Перейти в настройки</string>
     <string name="cancel">Не буду</string>
     <string name="ok">РАминь</string>
+    <string name="page_load_error">Не удалось загрузить страницу. ЛММ советует тебе отдохнуть и попробовать позже.</string>
+    <string name="unknown_error">Мы не знаем что это такое, если бы мы знали что это такое, мы не знаем что это такое!</string>
+    <string name="error">Ошибка: %s</string>
 
     <string name="dialog_stop_message">Стой, Смельчак!</string>
     <string name="dialog_message_limit">Ты жаждешь слишком много советов за день, о алчный в знаниях! Приходи завтра, когда макароны свежие, или…</string>

@@ -2,7 +2,6 @@ package com.glazer.flying.spaghetti.monster.gospel.bible.data.repositoryimpl
 
 import android.content.Context
 import android.content.res.Configuration
-import android.util.Log
 import com.glazer.flying.spaghetti.monster.gospel.bible.data.R
 import com.glazer.flying.spaghetti.monster.gospel.bible.domain.repository.AdviceRepository
 import com.glazer.flying.spaghetti.monster.gospel.bible.domain.sharedpreferences.PrefsManager
@@ -27,7 +26,6 @@ internal class AdviceRepositoryImpl @Inject constructor(
     private val currentAdvice = MutableStateFlow(prefsManager.recentListAdvices.lastOrNull() ?: "")
 
     override fun currentAdvice(): Flow<String> {
-        Log.i("ADVICE_TAG", "recentAdvices ${prefsManager.recentListAdvices.joinToString()}")
         return currentAdvice.asStateFlow()
     }
 

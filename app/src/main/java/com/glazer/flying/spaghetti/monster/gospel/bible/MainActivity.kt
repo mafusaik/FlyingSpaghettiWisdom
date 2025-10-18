@@ -26,7 +26,6 @@ import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
-import com.glazer.flying.spaghetti.monster.gospel.bible.domain.constants.AppConstants.DEFAULT_LANGUAGE
 import com.glazer.flying.spaghetti.monster.gospel.bible.domain.constants.AppConstants.KEY_LANGUAGE
 import com.glazer.flying.spaghetti.monster.gospel.bible.domain.constants.AppConstants.PREFERENCES_NAME_TOKEN
 import com.glazer.flying.spaghetti.monster.gospel.bible.extensions.setAppLocale

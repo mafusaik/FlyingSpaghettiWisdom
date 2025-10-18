@@ -1,7 +1,6 @@
 package com.glazer.flying.spaghetti.monster.gospel.bible.ui.book
 
 import android.graphics.Bitmap
-import android.util.Log
 import androidx.compose.foundation.gestures.animateScrollBy
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.lazy.LazyColumn
@@ -30,14 +29,12 @@ fun PdfPagesList(
         listState.scrollToItem(viewModel.scrollIndex.intValue)
         delay(100)
         listState.animateScrollBy(viewModel.scrollOffset.intValue.toFloat())
-        Log.i("BOOK_STATE", "PdfPagesList LaunchedEffect")
     }
 
     DisposableEffect(Unit) {
         onDispose {
             val pageIndex = listState.firstVisibleItemIndex + 1
             val pageOffset = listState.firstVisibleItemScrollOffset
-            Log.i("BOOK_STATE", "save index page $pageIndex offset $pageOffset")
             viewModel.saveLastPage(pageIndex, pageOffset)
         }
     }
@@ -53,7 +50,8 @@ fun PdfPagesList(
             val imageContent = pagingItems[pageIndex]
             PdfPageItem(
                 pageIndex = pageIndex,
-                bitmap = imageContent?.data as Bitmap
+                bitmap = imageContent?.data as Bitmap,
+                isPageShow = viewModel.isPageShow()
             )
         }
     }

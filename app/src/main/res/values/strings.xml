@@ -11,6 +11,10 @@
     <string name="go_settings">Go to Settings</string>
     <string name="cancel">I won\'t</string>
     <string name="ok">RAmen</string>
+    <string name="page_index" translatable="false">— %s —</string>
+    <string name="page_load_error">The page failed to load. FSM advises you to rest and try again later.</string>
+    <string name="unknown_error">Unknown error. We do\'t even know what it is yet. We don\'t know what it is.</string>
+    <string name="error">Error: %s</string>
 
 
     <string name="dialog_stop_message">Stop, Brave!</string>

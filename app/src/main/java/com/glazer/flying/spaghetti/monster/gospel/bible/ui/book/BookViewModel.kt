@@ -1,6 +1,5 @@
 package com.glazer.flying.spaghetti.monster.gospel.bible.ui.book
 
-import android.util.Log
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -18,6 +17,7 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import java.util.Locale
 import javax.inject.Inject
 
 
@@ -35,7 +35,6 @@ class BookViewModel @Inject constructor(
 
 
     suspend fun initPgfBook() = withContext(Dispatchers.IO) {
-        Log.i("BOOK_STATE", "init")
         val language = prefRepository.getCurrentLanguage()
         val assetName = if (language == DEFAULT_LANGUAGE) ASSET_NAME_ENG
         else ASSET_NAME_RUS
@@ -49,13 +48,12 @@ class BookViewModel @Inject constructor(
             try {
                 val pageCount = pdfRepository.getPageCount()
                 val savedPage = scrollIndex.intValue
-                Log.i("BOOK_STATE", "getPgfData $savedPage")
                 val flow = pdfRepository.getPdfPagingSource(savedPage).flow.cachedIn(viewModelScope)
 
                 _uiState.update { PdfUiState.Success(pageCount, flow) }
 
             } catch (e: Exception) {
-                _uiState.value = PdfUiState.Error(e.message ?: "Unknown error")
+                _uiState.value = PdfUiState.Error(e.message)
             }
         }
     }
@@ -69,12 +67,15 @@ class BookViewModel @Inject constructor(
         }
     }
 
-
     fun getLastPage() {
         val index = prefRepository.getSavedPage()
         val offset = prefRepository.getSavedOffset()
         scrollIndex.intValue = index
         scrollOffset.intValue = offset
+    }
+
+    fun isPageShow(): Boolean {
+        return prefRepository.getCurrentLanguage() == Locale.ENGLISH.language
     }
 
     override fun onCleared() {

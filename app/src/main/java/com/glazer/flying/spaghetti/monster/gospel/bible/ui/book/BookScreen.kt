@@ -1,6 +1,5 @@
 package com.glazer.flying.spaghetti.monster.gospel.bible.ui.book
 
-import android.util.Log
 import androidx.compose.foundation.gestures.detectTransformGestures
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
@@ -19,12 +18,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.input.pointer.pointerInput
+import androidx.compose.ui.res.stringResource
 import androidx.core.view.WindowInsetsControllerCompat
+import com.glazer.flying.spaghetti.monster.gospel.bible.R
 import com.glazer.flying.spaghetti.monster.gospel.bible.extensions.rememberScreenWidthDp
 import com.glazer.flying.spaghetti.monster.gospel.bible.model.PdfUiState
 import kotlinx.coroutines.async
-import kotlinx.coroutines.coroutineScope
-import kotlinx.coroutines.delay
 
 @Composable
 fun BookScreen(
@@ -38,11 +37,9 @@ fun BookScreen(
     }
 
     LaunchedEffect(Unit) {
-        Log.i("BOOK_STATE", "init LaunchedEffect")
         val isInit = async {
             viewModel.initPgfBook()
         }.await()
-        Log.i("BOOK_STATE", "init LaunchedEffect after await")
         if (isInit) viewModel.getPgfData()
     }
 
@@ -96,7 +93,8 @@ fun BookScreen(
 
             is PdfUiState.Error -> {
                 Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-                    Text("Error: ${state.message}")
+                    val textError = state.message ?: run { stringResource(R.string.unknown_error) }
+                    Text(stringResource(R.string.error, textError))
                 }
             }
         }

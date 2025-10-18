@@ -7,5 +7,5 @@ import kotlinx.coroutines.flow.Flow
 sealed class PdfUiState {
         data object Loading : PdfUiState()
         data class Success(val pageCount: Int, val data: Flow<PagingData<ImageContent>>) : PdfUiState()
-        data class Error(val message: String) : PdfUiState()
+        data class Error(val message: String?) : PdfUiState()
     }

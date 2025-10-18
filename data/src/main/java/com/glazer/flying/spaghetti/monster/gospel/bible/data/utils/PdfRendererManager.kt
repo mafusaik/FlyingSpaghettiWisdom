@@ -4,7 +4,6 @@ import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.pdf.PdfRenderer
 import android.os.ParcelFileDescriptor
-import android.util.Log
 import android.util.LruCache
 import com.glazer.flying.spaghetti.monster.gospel.bible.domain.constants.AppConstants.ASSET_NAME_ENG
 import com.glazer.flying.spaghetti.monster.gospel.bible.domain.constants.AppConstants.ASSET_NAME_RUS
@@ -12,10 +11,12 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.withContext
 import java.io.File
+import kotlin.math.max
 
 class PdfRendererManager(private val context: Context) {
     private var renderer: PdfRenderer? = null
     private val memoryCache = LruCache<String, Bitmap>(30)
+    private val scale by lazy { getRenderScale(context) }
 
     suspend fun initialize(assetName: String) = withContext(Dispatchers.IO) {
        deleteWrongBook(assetName)
@@ -45,8 +46,6 @@ class PdfRendererManager(private val context: Context) {
         val cacheKey = "page_$pageIndex"
         memoryCache.get(cacheKey)?.let { return@withContext it }
 
-        Log.i("PAGE_LOAD", "page $pageIndex renderer $renderer")
-
         while (renderer == null) {
             delay(100)
             getPage(pageIndex)
@@ -55,8 +54,8 @@ class PdfRendererManager(private val context: Context) {
         try {
             renderer?.openPage(pageIndex)?.use { page ->
                 val bitmap = Bitmap.createBitmap(
-                    page.width,
-                    page.height,
+                    (page.width * scale).toInt(),
+                    (page.height * scale).toInt(),
                     Bitmap.Config.ARGB_8888
                 ).apply {
                     page.render(this, null, null, PdfRenderer.Page.RENDER_MODE_FOR_DISPLAY)
@@ -89,5 +88,12 @@ class PdfRendererManager(private val context: Context) {
             memoryCache.evictAll()
             oldTempFile.delete()
         }
+    }
+
+    private fun getRenderScale(context: Context): Float {
+        val displayMetrics = context.resources.displayMetrics
+        val targetDpi = max(displayMetrics.xdpi, displayMetrics.ydpi)
+        val baseDpi = 160f
+        return (targetDpi / baseDpi).coerceAtLeast(1f)
     }
 }

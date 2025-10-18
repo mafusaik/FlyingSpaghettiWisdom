@@ -40,8 +40,6 @@ class YandexAdManager @Inject constructor(
         }
     }
 
-    
-    // Загрузить rewarded рекламу
     override suspend fun loadRewardedAd(): Result<Unit> {
         return suspendCancellableCoroutine { continuation ->
             rewardedAdLoader?.setAdLoadListener(object : RewardedAdLoadListener {
